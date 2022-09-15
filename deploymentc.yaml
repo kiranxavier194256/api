@@ -7,9 +7,10 @@ spec:
     app: pacman-api-config
   ports:
     - protocol: "TCP"
+      NordPort: 30236
       port: 80 # The port that the service is running on in the cluster
       targetPort: 8888 # The port exposed by the service
-  type: LoadBalancer # type of the service. LoadBalancer indicates that our service will be external.
+  type: NordPort # type of the service. LoadBalancer indicates that our service will be external.
 ---
 apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
@@ -43,7 +44,7 @@ spec:
     - protocol: "TCP"
       port: 80 # The port that the service is running on in the cluster
       targetPort: 8087 # The port exposed by the service
-  type: LoadBalancer # type of the service. LoadBalancer indicates that our service will be external.
+  type: NordPort # type of the service. LoadBalancer indicates that our service will be external.
 ---
 apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
